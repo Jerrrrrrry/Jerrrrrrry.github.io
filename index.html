@@ -1,12 +1,82 @@
-<html>
-<script>
-function test() {
-alert("hello");
-}
-</script>
+
+
+<html lang="zh-CN">
+<head>
+<title>刘辉净费计算</title>
+<meta charset="UTF-8">
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+    <script> 
+        function count_onclick()
+        {
+            f1.hj1.value = Math.round(f1.je1.value * 100 + f1.je2.value * 100 + f1.je3.value*100 )/100  //费用合计
+            
+            f1.fx1.value = Math.round(f1.je1.value / 1.06 * f1.xs1.value / 100)   //交强
+            f1.fx2.value = Math.round(f1.je2.value * f1.xs2.value / 100)   //车船
+            f1.fx3.value = Math.round(f1.je3.value / 1.06 * f1.xs3.value / 100)   //商业
+
+            f1.hj2.value = Math.round(f1.fx1.value*1+ f1.fx2.value*1 + f1.fx3.value*1) //返佣合计
+
+            f1.allmoney.value=Math.round(f1.hj1.value*1-f1.hj2.value*1)+1
+        }
+    </script>
 <body>
+    <form name="f1" method="post" action="jf.aspx?from=singlemessage&amp;isappinstalled=0" id="f1">
 <div>
-<button onclick="test()">test</button>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMjAxMDUwMjIwMmRk9OZGm2gGLgX0LV9O+loXdhHdaEs=" />
 </div>
-<body>
-</html>
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="4680C412" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWDQKMypX5BgKNmJ/RBQKogb3mDwLD6tr7CQL7l9fQBQKWgfXlDwKx6pL7CQL9l4PRBQLvl8vRBQKKgenmDwKl6ob8CQKYgaHmDwLn/+imBZ+3ZEKElLiKUg4fJMfCi4rheBg1" />
+</div>
+        <span id="Label1">交强</span>
+        <input name="xs1" type="text" id="xs1" style="width:150px;" />
+        %&nbsp;
+        <br />
+        <span id="Label2">车船</span>
+        <input name="xs2" type="text" id="xs2" style="width:150px;" />
+        %&nbsp;
+        
+        <br />
+        
+        <span id="Label3">商业</span>
+        <input name="xs3" type="text" id="xs3" style="width:150px;" />
+        %<br />
+        <br />
+        <span id="Label4">交强</span>
+        <input name="je1" type="text" id="je1" style="width:150px;" />
+        元<br />
+        <span id="Label5">车船</span>
+        <input name="je2" type="text" id="je2" style="width:150px;" />
+        元<br />
+        <span id="Label6">商业</span>
+        <input name="je3" type="text" id="je3" style="width:150px;" />
+        元<br />
+        <br />
+        <span id="Label11">合计</span>
+        <input name="hj1" type="text" id="hj1" style="width:150px;" />
+        元<P />
+        <input type="button"  value="计算" onclick="count_onclick()"/>
+
+        <P />
+        <span id="Label8">交强</span>
+        <input name="fx1" type="text" id="fx1" style="width:150px;" />
+        元&nbsp;<P />
+            <span id="Label9">车船</span>
+        <input name="fx2" type="text" id="fx2" style="width:150px;" />
+        元&nbsp;<P />
+            <span id="Label10">商业</span>
+        <input name="fx3" type="text" id="fx3" style="width:150px;" />
+            元<P />
+            <span id="Label12">合计</span>
+        <input name="hj2" type="text" id="hj2" style="width:150px;" />
+            元<P />
+        <span id="Label7">净费</span>
+        <input name="allmoney" type="text" id="allmoney" style="width:135px;" />
+            元<P />
+            &nbsp;</form>
+
+</body>
